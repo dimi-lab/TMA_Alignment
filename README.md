@@ -23,12 +23,7 @@ Rigid registration between H&E and multiplex (MxIF/IF) tissue images using nucle
 - [Usage](#usage)
 - [Outputs](#outputs)
 - [Pixel size rules & overrides](#pixel-size-rules--overrides)
-- [Troubleshooting](#troubleshooting)
-- [Performance tips](#performance-tips)
-- [Notes & limitations](#notes--limitations)
-- [Cite & credits](#cite--credits)
-- [License](#license)
-
+- [Tiling & Embedding](#Tiling--Embedding)
 ------
 
 ## Overview
@@ -155,3 +150,17 @@ ps_mx = PixelSize(0.325,  0.325)
 > If both OME-XML and TIFF tags fail, manual values are **required** for correct registration.
 >  Incorrect pixel sizes typically cause **translation** errors even when rotation looks right.
 
+------
+
+## Tiling & Embedding
+
+For tiling and embedding the aligned H&E images, please use `preprocess_TMA.py` from  
+[digpath-annotation-flows (peiliang-branch)](https://github.com/dimi-lab/digpath-annotation-flows/tree/peiliang-branch/ms_prediction).
+
+Inside the `create_tissue_tiles()` function, replace:
+
+```python
+mpp_x = mpp_y = 0.2628140277841161
+
+with the corresponding pixel size for your aligned H&E images.
+This ensures tile coordinates and embedding resolutions are consistent with the registration output.
