@@ -161,6 +161,6 @@ Inside the `create_tissue_tiles()` function, replace:
 
 ```python
 mpp_x = mpp_y = 0.2628140277841161
-
+```
 with the corresponding pixel size for your aligned H&E images.
 This ensures tile coordinates and embedding resolutions are consistent with the registration output.
